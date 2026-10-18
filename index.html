@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电脑小技能清单</title>
+<meta name="description" content="Windows 11 日常操作速查：快捷键、截图、任务栏、GitHub。">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0e1013;
+    color: #e6e8eb;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 0 60px;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 18px; }
+
+  header {
+    padding: 44px 0 26px;
+    border-bottom: 1px solid #23282f;
+    margin-bottom: 30px;
+  }
+  .kicker {
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: #4d9fff; margin-bottom: 12px; display: flex; align-items: center; gap: 7px;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: #3ecf8e; display: inline-block; }
+  h1 {
+    font-size: clamp(24px, 6vw, 34px);
+    font-weight: 600; letter-spacing: -.025em; line-height: 1.25;
+  }
+  .sub { color: #8b939e; font-size: 13.5px; margin-top: 9px; }
+
+  .search-box { margin-top: 22px; position: relative; }
+  .search-box svg {
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    width: 15px; height: 15px; stroke: #6d7681; fill: none; stroke-width: 2;
+  }
+  #q {
+    width: 100%; padding: 12px 14px 12px 40px;
+    background: #171a1f; border: 1px solid #2a2f36; border-radius: 10px;
+    color: #e6e8eb; font-size: 14.5px; font-family: inherit;
+    outline: none; transition: border-color .15s;
+  }
+  #q::placeholder { color: #5f6873; }
+  #q:focus { border-color: #4d9fff88; }
+
+  section { margin-bottom: 34px; }
+  h2 {
+    font-size: 15px; font-weight: 600; color: #e6e8eb;
+    padding-bottom: 10px; margin-bottom: 12px;
+    border-bottom: 1px solid #23282f;
+    display: flex; align-items: baseline; gap: 9px;
+  }
+  h2 .count { font-size: 11.5px; color: #5f6873; font-weight: 400; }
+
+  .item {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 16px;
+    padding: 11px 14px;
+    border-radius: 8px;
+    border-left: 2px solid transparent;
+    transition: background .12s;
+  }
+  .item:hover { background: #15181d; }
+  .item.hot {
+    border-left-color: #4d9fff;
+    background: #131820;
+  }
+  .item.hot:hover { background: #161d27; }
+  .k { font-size: 13.5px; color: #c3cad3; font-weight: 500; }
+  .item.hot .k { color: #e6e8eb; }
+  .v { font-size: 13.5px; color: #98a1ac; }
+  .v b { color: #e6e8eb; font-weight: 500; }
+  .v em { color: #f0a04b; font-style: normal; }
+
+  kbd {
+    display: inline-block;
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 12px; line-height: 1.5;
+    padding: 1px 6px; margin: 0 1px;
+    background: #23282f; color: #cfd6de;
+    border: 1px solid #3a424b; border-bottom-width: 2px;
+    border-radius: 5px; white-space: nowrap;
+  }
+
+  .note {
+    margin-top: 14px; padding: 13px 15px;
+    background: #14181e; border: 1px solid #23282f; border-radius: 9px;
+    font-size: 12.8px; color: #8b939e;
+  }
+  .note strong { color: #c3cad3; font-weight: 500; }
+  .note code {
+    font-family: ui-monospace, Consolas, monospace; font-size: 11.5px;
+    background: #1d232b; padding: 1px 5px; border-radius: 4px; color: #a8b0ba;
+    word-break: break-all;
+  }
+
+  .empty {
+    display: none; text-align: center; padding: 50px 20px;
+    color: #5f6873; font-size: 14px;
+  }
+
+  footer {
+    margin-top: 46px; padding-top: 20px; border-top: 1px solid #23282f;
+    font-size: 12.5px; color: #5f6873; line-height: 1.8;
+  }
+  footer .principle {
+    margin-top: 12px; padding: 12px 15px;
+    background: #131820; border-left: 2px solid #4d9fff; border-radius: 0 8px 8px 0;
+    color: #98a1ac;
+  }
+
+  @media (max-width: 560px) {
+    header { padding: 32px 0 22px; }
+    .item {
+      grid-template-columns: 1fr;
+      gap: 4px;
+      padding: 10px 12px;
+    }
+    .k { font-size: 13.5px; }
+    .v { font-size: 13px; }
+    kbd { font-size: 11.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker"><span class="dot"></span>Windows 11 · 持续更新</div>
+    <h1>电脑小技能清单</h1>
+    <p class="sub">日常操作速查。记不住的东西查这里，不用每次重新问。</p>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+      <input id="q" type="text" placeholder="搜一下：截图、任务栏、快捷键、GitHub…" autocomplete="off">
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>文件与路径 <span class="count">7 条</span></h2>
+      <div class="item hot">
+        <div class="k">复制文件路径（最快）</div>
+        <div class="v">资源管理器里<b>点选文件</b>后按 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd></div>
+      </div>
+      <div class="item">
+        <div class="k">复制路径（菜单法）</div>
+        <div class="v">右键文件 →「复制文件地址」</div>
+      </div>
+      <div class="item">
+        <div class="k">复制路径（兼容旧法）</div>
+        <div class="v"><kbd>Shift</kbd>+右键 →「复制为路径」</div>
+      </div>
+      <div class="item">
+        <div class="k">跳到某个路径</div>
+        <div class="v">资源管理器地址栏直接粘贴路径，回车</div>
+      </div>
+      <div class="item">
+        <div class="k">搜索文件</div>
+        <div class="v">开始菜单直接打字搜文件名，回车打开</div>
+      </div>
+      <div class="item">
+        <div class="k">重命名文件</div>
+        <div class="v">选中文件按 <kbd>F2</kbd></div>
+      </div>
+      <div class="item">
+        <div class="k">撤销刚才的误操作</div>
+        <div class="v"><kbd>Ctrl</kbd>+<kbd>Z</kbd>　删错文件、改错内容都能救</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>截图与图像 <span class="count">3 条</span></h2>
+      <div class="item hot">
+        <div class="k">区域截图</div>
+        <div class="v"><kbd>Win</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>　自动存到「图片\Screenshots」</div>
+      </div>
+      <div class="item">
+        <div class="k">放大 / 缩小界面</div>
+        <div class="v"><kbd>Ctrl</kbd>+<kbd>+</kbd>　<kbd>Ctrl</kbd>+<kbd>-</kbd>　<kbd>Ctrl</kbd>+<kbd>0</kbd> 恢复原样</div>
+      </div>
+      <div class="item">
+        <div class="k">让 OCR 识别更准</div>
+        <div class="v">截图前先把内容放大到 150% 以上再截</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>窗口与日常效率 <span class="count">9 条</span></h2>
+      <div class="item hot">
+        <div class="k">软件崩溃后弹「异常终止」框</div>
+        <div class="v">选<em>「正常启动 / Start normally」</em>，<b>不要选「安全模式」</b>——安全模式会禁用所有插件和扩展，装了也等于没装</div>
+      </div>
+      <div class="item">
+        <div class="k">显示桌面</div>
+        <div class="v"><kbd>Win</kbd>+<kbd>D</kbd></div>
+      </div>
+      <div class="item">
+        <div class="k">切换窗口</div>
+        <div class="v"><kbd>Alt</kbd>+<kbd>Tab</kbd></div>
+      </div>
+      <div class="item">
+        <div class="k">强制任务管理器</div>
+        <div class="v"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Esc</kbd>　程序卡死时用它结束</div>
+      </div>
+      <div class="item">
+        <div class="k">锁屏</div>
+        <div class="v"><kbd>Win</kbd>+<kbd>L</kbd>　离开座位必按</div>
+      </div>
+      <div class="item">
+        <div class="k">剪贴板历史</div>
+        <div class="v"><kbd>Win</kbd>+<kbd>V</kbd>　首次需在「设置 → 系统 → 剪贴板」里打开</div>
+      </div>
+      <div class="item">
+        <div class="k">表情 / 符号面板</div>
+        <div class="v"><kbd>Win</kbd>+<kbd>.</kbd></div>
+      </div>
+      <div class="item">
+        <div class="k">全选 / 复制 / 粘贴</div>
+        <div class="v"><kbd>Ctrl</kbd>+<kbd>A</kbd>　<kbd>Ctrl</kbd>+<kbd>C</kbd>　<kbd>Ctrl</kbd>+<kbd>V</kbd></div>
+      </div>
+      <div class="item">
+        <div class="k">保存文件</div>
+        <div class="v"><kbd>Ctrl</kbd>+<kbd>S</kbd></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>任务栏优化 <span class="count">7 条</span></h2>
+      <div class="item hot">
+        <div class="k">只留图标、不显示标题</div>
+        <div class="v">设置 → 个性化 → 任务栏 →「任务栏行为」→「合并任务栏按钮并隐藏标签」→ 选<em>「始终」</em></div>
+      </div>
+      <div class="item">
+        <div class="k">为什么会显示全名</div>
+        <div class="v">这一项现在是「从不」＝ 每个窗口都摊开「图标 + 完整标题」</div>
+      </div>
+      <div class="item">
+        <div class="k">想更省地方</div>
+        <div class="v">同一页里：搜索框改成「仅图标」、关掉「小组件」按钮</div>
+      </div>
+      <div class="item">
+        <div class="k">同一程序开了多个窗口</div>
+        <div class="v">合并后点图标会弹出全部窗口缩略图，一个都不会丢</div>
+      </div>
+      <div class="item">
+        <div class="k">快速切到第 N 个图标</div>
+        <div class="v"><kbd>Win</kbd>+<kbd>1</kbd> 到 <kbd>Win</kbd>+<kbd>9</kbd>　从左边数</div>
+      </div>
+      <div class="item">
+        <div class="k">所有窗口一览</div>
+        <div class="v"><kbd>Win</kbd>+<kbd>Tab</kbd>　任务视图</div>
+      </div>
+      <div class="item">
+        <div class="k">想恢复原样</div>
+        <div class="v">把「合并任务栏按钮并隐藏标签」改回「从不」</div>
+      </div>
+      <div class="note">
+        <strong>注册表位置</strong>（不用记，知道有这回事即可）：<br>
+        <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced</code> 里的 <code>TaskbarGlomLevel</code><br>
+        <code>0</code> = 始终合并（只留图标）／<code>1</code> = 任务栏满时合并／<code>2</code> = 从不合并（图标+标题）
+      </div>
+    </section>
+
+    <section>
+      <h2>用 WorkBuddy 处理文件 <span class="count">5 条</span></h2>
+      <div class="item hot">
+        <div class="k">让我处理电脑上的文件</div>
+        <div class="v">复制路径 + 说要求。内容进不进上下文由我控制，最省</div>
+      </div>
+      <div class="item">
+        <div class="k">懒得复制路径</div>
+        <div class="v">直接描述：「桌面最新的 docx」「刚才下载的 PDF」——我来找</div>
+      </div>
+      <div class="item">
+        <div class="k">OCR 截图 / PDF</div>
+        <div class="v">说「OCR 刚才的截图」，或者直接发路径</div>
+      </div>
+      <div class="item">
+        <div class="k">自己跑 OCR（零 token）</div>
+        <div class="v">桌面上 <b>OCR.bat</b>，把文件拖上去</div>
+      </div>
+      <div class="item">
+        <div class="k">OCR 结果去哪找</div>
+        <div class="v"><code>D:\WorkBuddy_OCR输出\</code>　按内容自动命名</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>GitHub 与代码托管 <span class="count">8 条</span></h2>
+      <div class="item hot">
+        <div class="k">建新仓库（最快）</div>
+        <div class="v">地址栏直接输 <code>github.com/new</code></div>
+      </div>
+      <div class="item">
+        <div class="k">下载别人的项目（不装软件）</div>
+        <div class="v">项目页 → 绿色 <b>Code</b> 按钮 → <b>Download ZIP</b></div>
+      </div>
+      <div class="item">
+        <div class="k">在网页上改文件</div>
+        <div class="v">打开文件 → 右上角铅笔图标 → 改完点 <b>Commit changes</b></div>
+      </div>
+      <div class="item">
+        <div class="k">判断项目靠不靠谱</div>
+        <div class="v">看 Star 数、最后更新时间、README 有没有写清楚</div>
+      </div>
+      <div class="item">
+        <div class="k">看某个文件的历史版本</div>
+        <div class="v">文件页 → 右上 <b>History</b></div>
+      </div>
+      <div class="item">
+        <div class="k">找回被删掉的文件</div>
+        <div class="v">仓库页 → <b>Commits</b> 里翻到删除前的那次提交</div>
+      </div>
+      <div class="item">
+        <div class="k">想存私有项目</div>
+        <div class="v">建仓库时选 <b>Private</b>，只有自己可见</div>
+      </div>
+      <div class="item">
+        <div class="k">加速访问（国内）</div>
+        <div class="v">换网络环境最有效；镜像站只能下代码，不能提交</div>
+      </div>
+      <div class="note">
+        <strong>一条铁律</strong>：密码、API 密钥、身份证照片永远不放进仓库。公开仓库全世界可见，还有爬虫 7×24 扫。<br>
+        <strong>Git 和 GitHub 不是一回事</strong>：Git 是装在本机的版本管理软件，GitHub 是网上的托管网站。日常网页操作足够，不用碰命令行。
+      </div>
+    </section>
+
+    <div class="empty" id="empty">没找到。换个词试试，比如「截图」「任务栏」。</div>
+
+  </main>
+
+  <footer>
+    建立于 2026-10-17 · 最后更新 2026-10-19<br>
+    内容随用随补，遇到新技巧直接加进来。
+    <div class="principle">不确定的操作先问，别硬试；重要的东西先备份。</div>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var q = document.getElementById('q');
+    var sections = Array.prototype.slice.call(document.querySelectorAll('main section'));
+    var empty = document.getElementById('empty');
+
+    q.addEventListener('input', function () {
+      var kw = q.value.trim().toLowerCase();
+      var total = 0;
+
+      sections.forEach(function (sec) {
+        var shown = 0;
+        var items = sec.querySelectorAll('.item');
+        Array.prototype.forEach.call(items, function (it) {
+          var hit = !kw || it.textContent.toLowerCase().indexOf(kw) !== -1;
+          it.style.display = hit ? '' : 'none';
+          if (hit) shown++;
+        });
+        sec.style.display = shown ? '' : 'none';
+        total += shown;
+      });
+
+      empty.style.display = total ? 'none' : 'block';
+    });
+  })();
+</script>
+</body>
+</html>
