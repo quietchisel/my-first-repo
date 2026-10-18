@@ -2,6 +2,9 @@
 
 `quietchisel` 的第一个 GitHub 仓库。
 
+**在线网页：[电脑小技能清单](https://quietchisel.github.io/my-first-repo/)** ← 手机可直接打开
+
+
 ## 这是干什么的
 
 不是练手空壳。从今天起，学习进度、踩过的坑、能复用的操作步骤都记在这里。
