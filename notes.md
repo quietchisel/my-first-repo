@@ -85,7 +85,8 @@
 >
 > **Git 和 GitHub 不是一回事**：Git 是装在本机的版本管理软件（已装，2.55.0），GitHub 是网上的托管网站。小白阶段网页操作足够，不用碰命令行。
 
-> **收藏清单**（GitHub Lists 功能实测不可用，降级记在这里）：2026-10-19 star 了 `0PandaDEV/awesome-windows`（Windows 软件清单）。以后值得收藏的仓库都追加在这条下面，仓库名 + 一句话理由。
+> **收藏清单**（GitHub Lists 功能实测不可用，降级记在这里）：2026-10-19 star 了 `0PandaDEV/awesome-windows`（Windows 软件清单）。
+> 2026-10-19 star 了 `TranslucentTB/TranslucentTB`（任务栏透明化，20.6k 星，Win10/11 通用，Microsoft Store 可装）。以后值得收藏的仓库都追加在这条下面，仓库名 + 一句话理由。
 
 ---
 **小白原则**：不确定的操作先问，别硬试；重要的东西 WorkBuddy 会帮你备份。
