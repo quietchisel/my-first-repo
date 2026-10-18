@@ -305,7 +305,7 @@ def main():
         print("  - %-16s %d 条" % (s["title"], len(s["items"])))
 
     if "--push" in sys.argv:
-        for cmd in (["git", "add", "index.html"],
+        for cmd in (["git", "add", "index.html", "notes.md", "README.md"],
                     ["git", "commit", "-m", "更新清单内容"],
                     ["git", "push"]):
             r = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True)

@@ -16,6 +16,8 @@
 - [x] 配置本地 Git 身份
 - [x] 建立 SSH 密钥并让 GitHub 认识这台电脑
 - [x] 第一次推送（push）
+- [x] GitHub Pages 发布网页 + notes.md 单一源工作流
+- [x] Star 收藏 + 搜索语法找仓库（搜索语法速查见 notes.md）
 
 ## 环境备忘
 
