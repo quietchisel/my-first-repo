@@ -37,6 +37,16 @@
 | 全选 / 复制 / 粘贴 | `Ctrl+A` / `Ctrl+C` / `Ctrl+V` |
 | 保存文件 | `Ctrl+S` |
 
+## 文件拖不进软件（拖放失效）2026-10-19 补
+
+| 操作 | 方法 |
+|---|---|
+| **拖文件进软件被拒（光标 ⊘）** | 先确认**拖放目标面板还在不在**。foobar 只能拖进「播放列表 Playlist view」；拖到 Album List / 可视化区域一律被拒 |
+| foobar 找不到播放列表/布局乱了 | 菜单 `View → Layout → Enable layout editing mode` → 在面板**空白处右键**（别点点名）→ `Insert panel → Playlist view` → 最后把编辑模式的勾**取消** |
+| 万能加歌法（不依赖拖放） | foobar 窗口里按 `Ctrl+O` → 多选 → 打开 |
+| 拖多个文件不行、单个可以 | 多半是从 **ZIP 压缩包**里直接拖——Windows 禁止从压缩文件夹拖多个文件，先解压 |
+| 拖放突然对所有软件都失效 | 软件被「以管理员身份运行」也会被拦（普通软件 + 管理员 = 互相拖不动）；设置了右键 Enqueue 的软件若右键没有该菜单，是外壳扩展没注册 |
+
 ## 用 WorkBuddy 处理文件（省 token 姿势）
 
 | 场景 | 做法 |
@@ -86,7 +96,7 @@
 > **Git 和 GitHub 不是一回事**：Git 是装在本机的版本管理软件（已装，2.55.0），GitHub 是网上的托管网站。小白阶段网页操作足够，不用碰命令行。
 
 > **收藏清单**（GitHub Lists 功能实测不可用，降级记在这里）：2026-10-19 star 了 `0PandaDEV/awesome-windows`（Windows 软件清单）。
-> 2026-10-19 star 了 `TranslucentTB/TranslucentTB`（任务栏透明化，20.6k 星，Win10/11 通用，Microsoft Store 可装）。以后值得收藏的仓库都追加在这条下面，仓库名 + 一句话理由。
+> 2026-10-19 star 了 `TranslucentTB/TranslucentTB`（任务栏透明化，20.6k 星，Win10/11 通用，Microsoft Store 可装，**已安装使用中**）。以后值得收藏的仓库都追加在这条下面，仓库名 + 一句话理由。
 
 ---
 **小白原则**：不确定的操作先问，别硬试；重要的东西 WorkBuddy 会帮你备份。

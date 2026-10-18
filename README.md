@@ -18,6 +18,7 @@
 - [x] 第一次推送（push）
 - [x] GitHub Pages 发布网页 + notes.md 单一源工作流
 - [x] Star 收藏 + 搜索语法找仓库（搜索语法速查见 notes.md）
+- [x] 完整闭环一遍：从清单找工具 → 四步判断质量 → Star → 下载安装上手（成果：TranslucentTB 任务栏透明化，已用）
 
 ## 环境备忘
 
