@@ -233,7 +233,7 @@
       </div>
       <div class="item">
         <div class="k">自己跑 OCR（零 token）</div>
-        <div class="v">拖到桌面 <code>OCR.bat</code> 上；或选中文件 → 右键 →「发送到」→ <code>OCR 文字识别</code></div>
+        <div class="v">双击桌面 <code>电脑小白清单</code> →「② 读最新截图」（只认<b>最新那张</b>图）；或选中文件 → 右键 →「发送到」→ <code>OCR 文字识别</code></div>
       </div>
       <div class="item">
         <div class="k">OCR 结果去哪找</div>
@@ -332,6 +332,45 @@
       </div>
       <div class="note">
         <b>一条铁律</b>：密码、API 密钥、身份证照片永远不放进仓库。公开仓库全世界可见，还有爬虫 7×24 扫。<br><b>Git 和 GitHub 不是一回事</b>：Git 是装在本机的版本管理软件（已装，2.55.0），GitHub 是网上的托管网站。小白阶段网页操作足够，不用碰命令行。<br><b>收藏清单</b>（GitHub Lists 功能实测不可用，降级记在这里）：2026-10-19 star 了 <code>0PandaDEV/awesome-windows</code>（Windows 软件清单）。<br>2026-10-19 star 了 <code>TranslucentTB/TranslucentTB</code>（任务栏透明化，20.6k 星，Win10/11 通用，Microsoft Store 可装，<b>已安装使用中</b>）。以后值得收藏的仓库都追加在这条下面，仓库名 + 一句话理由。
+      </div>
+    </section>
+
+    <section>
+      <h2>电脑上需要双击的入口（2026-10-30 补） <span class="count">8 条</span></h2>
+      <div class="item hot">
+        <div class="k"><b>B 站插件报登录失效</b></div>
+        <div class="v"><b>① 填B站凭证</b> —— 把 B 站 cookie 写进插件（约半年过期一次）</div>
+      </div>
+      <div class="item hot">
+        <div class="k"><b>想让我看一张截图</b></div>
+        <div class="v"><b>② 读最新截图</b> —— 自动找最新一张图，离线 OCR 出文字（不联网、不上传）</div>
+      </div>
+      <div class="item">
+        <div class="k">图片糊、要放大</div>
+        <div class="v">③ 图片增强 —— Lanczos 重采样 + 锐度控制</div>
+      </div>
+      <div class="item hot">
+        <div class="k"><b>怀疑没网 / 代理坏了</b></div>
+        <div class="v"><b>④ 联网体检</b> —— 20 秒探 4 层（密钥 / TLS / 直连 / 代理），先跑它再下结论</div>
+      </div>
+      <div class="item hot">
+        <div class="k"><b>每次发布前</b></div>
+        <div class="v"><b>⑤ 核对成片指纹</b> —— 算 SHA256 跟发布记录比对，防投错版本</div>
+      </div>
+      <div class="item">
+        <div class="k">发布后 24 / 48 小时</div>
+        <div class="v">⑥ 采集发布数据 —— 采播放 / 赞 / 币 / 藏 / 评论，与基线对比，生成复盘底稿</div>
+      </div>
+      <div class="item">
+        <div class="k">要审分镜稿</div>
+        <div class="v">⑦ 起审片服务 —— 本地 8770 端口起网页，浏览器看双栏审片稿</div>
+      </div>
+      <div class="item">
+        <div class="k">要推额度服务修复</div>
+        <div class="v">⑧ 部署并重启 —— 把改好的服务脚本推到安装目录并重启（需管理员权限，会弹 UAC）</div>
+      </div>
+      <div class="note">
+        桌面有个文件夹 <code>电脑小白清单</code>，里面 8 个图标。<b>图标名字的前半截就是「什么时候点」</b>——遇到下面对应的情况，双击它就行，不用记。<br>这个文件夹由 <code>入口清单.json</code> + <code>建桌面入口.ps1</code> 生成：改 JSON → 双击 <code>建桌面入口.bat</code> → 桌面自动刷新。<b>别手工拖快捷方式</b>，下次重跑会覆盖。<br><b>为什么只有 8 个</b>：原来有 32 个 <code>.bat</code>。筛掉的三类——一次性任务（做完就死）、AI 干活时自己用的脚本（probe / 校验器 / 构建）、有看门狗自动管理的（不用手动启停）。<br><b>判断标准</b>：一个脚本如果说不清「什么时候会用到」，它就不该出现在清单里。<br><b>有明确时间点的事，不要靠记</b>：直接让 AI 挂定时提醒，到点在对话里弹出来。例：视频发布后 48 小时的数据回流，挂个提醒就不用惦记。<br><b>写 <code>.bat</code> 的一个坑</b>（2026-10-30 踩到）：bat 里不能出现 <code>%E5%</code> 这种<b>百分号编码</b>——cmd 会把 <code>%XX%</code> 当变量名，未定义就<b>静默删掉</b>。实测 <code>P5_%E5%AE%A1%E7%89%87%E7%A8%BF.html</code> 被算成 <code>P5_AEE797A8BF.html</code>，结果 404。<br>正确做法：URL 编码交给 Python 的 <code>urllib.parse.quote</code> 做，bat 里一个 <code>%</code> 都别出现。
       </div>
     </section>
 
